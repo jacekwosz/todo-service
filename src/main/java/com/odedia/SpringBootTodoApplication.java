@@ -119,3 +119,11 @@ class AccessLogMicrometer {
 		return Sampler.ALWAYS_SAMPLE;
 	}
 }
+@Configuration 
+@EnableWebMvc 
+class CorsConfig implements WebMvcConfigurer { 
+	@Override 
+	public void addCorsMappings(CorsRegistry registry) { 
+		registry.addMapping("/**").allowedOrigins("http://todo-ui.default.waw.tanzulabs.ninja/").allowedMethods("*");
+	} 
+}
