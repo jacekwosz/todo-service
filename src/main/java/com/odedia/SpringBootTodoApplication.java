@@ -21,8 +21,6 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -121,11 +119,4 @@ class AccessLogMicrometer {
 		return Sampler.ALWAYS_SAMPLE;
 	}
 }
-@Configuration 
-@EnableWebMvc 
-class CorsConfig implements WebMvcConfigurer { 
-	@Override 
-	public void addCorsMappings(CorsRegistry registry) { 
-		registry.addMapping("/**").allowedOrigins("http://todo-ui.default.waw.tanzulabs.ninja/").allowedMethods("*");
-	} 
-}
+
